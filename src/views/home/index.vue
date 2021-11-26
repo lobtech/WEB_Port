@@ -33,7 +33,7 @@
             </div>
         </div>
         <!-- 预售 -->
-        <div class="presell">
+        <div class="presell" v-if="0">
             <div class="flex items-center justify-center title">● <span style="font-size: 40px; padding: 0 20px"> Presell </span> ●</div>
             <div class="eggs">
                 <div class="flex items-center justify-center title" @click="initEggs">Eggs Sell</div>
@@ -105,8 +105,8 @@
                 </div>
             </div>
         </div>
-        <div style="height: 900px; width: 100%; background-color: #242736"></div>
-        <div style="height: 900px; width: 100%; background-color: #173444"></div>
+        <!-- <div style="height: 900px; width: 100%; background-color: #242736"></div>
+        <div style="height: 900px; width: 100%; background-color: #173444"></div> -->
     </div>
 </template>
 <script setup lang="ts">
@@ -221,7 +221,7 @@ let Countdown = computed(() => {
 </script>
 <style scoped>
 .home {
-    min-width: 1200px;
+    /* min-width: 1200px; */
 }
 
 .main {
@@ -229,7 +229,7 @@ let Countdown = computed(() => {
     left: 0;
     top: 0;
     width: 100%;
-    min-width: 1200px;
+    /* min-width: 1200px; */
     height: 900px;
 }
 .main > .title {
@@ -277,8 +277,8 @@ let Countdown = computed(() => {
 .main > .menu {
     position: absolute;
     top: 640px;
-    left: 35%;
-    width: 660px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .main > .menu .other {
     display: flex;

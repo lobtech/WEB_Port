@@ -1,16 +1,34 @@
 <template>
-    <div class="z-blurEffect navbar">
-        <div class="logo">
-            <img src="../../assets/image/logo.png" alt="" />
+    <div>
+        <div class="z-blurEffect navbar visible">
+            <div class="logo">
+                <img src="../../assets/image/logo.png" alt="" />
+            </div>
+            <div class="menu">
+                <div class="item" :class="[{ 'item-active': Active('/home') }]" :style="[]" @click="toPage('/home')">Home</div>
+                <div class="span"></div>
+                <div class="item" :class="[{ 'item-active': Active('/store') }]" @click="toPage('/store')">Store</div>
+                <div class="span"></div>
+                <div class="item" :class="[{ 'item-active': Active('/book') }]" @click="toPage('/book')">Book</div>
+            </div>
+            <div class="tips" @click="toPage('/test')">Play-to-Earn MMORPG NFT game</div>
         </div>
-        <div class="menu">
-            <div class="item" :class="[{ 'item-active': Active('/home') }]" :style="[]" @click="toPage('/home')">Home</div>
-            <div class="span"></div>
-            <div class="item" :class="[{ 'item-active': Active('/store') }]" @click="toPage('/store')">Store</div>
-            <div class="span"></div>
-            <div class="item" :class="[{ 'item-active': Active('/book') }]" @click="toPage('/book')">Book</div>
+
+        <div class="navbar visible md:invisible fixed opacity-100 md:opacity-0 transition-all left-0 top-0 flex items-center justify-center w-full backdrop-blur-lg backdrop-filter h-16">
+            <div class="absolute left-4 w-10">
+                <img src="../../assets/image/logo.png" alt="" />
+            </div>
+            <div class="text-xl font-medium">标题</div>
+            <div class="absolute right-4 flex items-center">
+                <svg class="mx-1 cursor-pointer text-3xl transition-all opacity-80 hover:opacity-100 visible md:opacity-0 md:invisible z-icon" aria-hidden="true">
+                    <use xlink:href="#z-icon-screen"></use>
+                </svg>
+                <svg class="mx-1 cursor-pointer text-3xl transition-all opacity-80 hover:opacity-100 visible md:opacity-0 md:invisible z-icon" aria-hidden="true">
+                    <use xlink:href="#z-icon-other"></use>
+                </svg>
+            </div>
+            <div class="h-16"></div>
         </div>
-        <div class="tips" @click="toPage('/test')">Play-to-Earn MMORPG NFT game</div>
     </div>
 </template>
 <script setup lang="ts">
@@ -35,7 +53,7 @@ const Active = computed(() => {
     left: 0;
     top: 0;
     width: 100%;
-    min-width: 1200px;
+    /* min-width: 1200px; */
     height: 60px;
     display: flex;
     align-items: center;

@@ -4,7 +4,7 @@
 <style>
 .bg {
     width: 100%;
-    min-width: 1200px;
+    /* min-width: 1200px; */
     height: 900px;
     /* background-image: url('@/assets/image/bg.jpeg'); */
     background-image: url('@/assets/image/bg.jpg');
