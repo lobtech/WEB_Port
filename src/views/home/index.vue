@@ -9,9 +9,9 @@
             <!-- 右下角按钮 -->
             <div class="menu">
                 <div class="btns">
-                    <div class="btn">READ LITEPAPER</div>
+                    <div class="btn md:p-0.5">READ LITEPAPER</div>
                     <div style="width: 60px"></div>
-                    <div class="btn">SUBSCRIBE</div>
+                    <div class="btn md:p-0.5">SUBSCRIBE</div>
                 </div>
                 <div class="other">
                     <div class="icon">
@@ -223,7 +223,14 @@ let Countdown = computed(() => {
 .home {
     /* min-width: 1200px; */
 }
-
+@media (min-width: 768px) { 
+    
+}
+@media screen and (max-width: 762px){
+  .btn{
+        padding: 0 40px !important;
+    }
+}
 .main {
     position: absolute;
     left: 0;
