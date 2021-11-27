@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="z-blurEffect navbar visible">
+        <div class="z-blurEffect navbar invisible md:visible">
             <div class="logo">
                 <img src="../../assets/image/logo.png" alt="" />
             </div>
@@ -13,7 +13,6 @@
             </div>
             <div class="tips" @click="toPage('/test')">Play-to-Earn MMORPG NFT game</div>
         </div>
-
         <div class="navbar visible md:invisible fixed opacity-100 md:opacity-0 transition-all left-0 top-0 flex items-center justify-center w-full backdrop-blur-lg backdrop-filter h-16">
             <div class="absolute left-4 w-10">
                 <img src="../../assets/image/logo.png" alt="" />
@@ -61,6 +60,7 @@ const Active = computed(() => {
     padding-right: 30px;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 999;
+    color: rgba(255, 255, 255, 0.5);
 }
 .logo {
     height: 40px;

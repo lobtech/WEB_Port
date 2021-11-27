@@ -1,12 +1,11 @@
 <template>
-    <div class="bg-local bg-cover bg-origin-border bg-no-repeat bg-center bg"></div>
+    <div class="h-full w-screen absolute bg-scroll bg-cover bg-origin-border bg-no-repeat bg-center bg"></div>
 </template>
 <style>
 .bg {
     width: 100%;
-    /* min-width: 1200px; */
-    height: 900px;
-    /* background-image: url('@/assets/image/bg.jpeg'); */
+    min-height: 80vh;
+    z-index: -1;
     background-image: url('@/assets/image/bg.jpg');
 }
 </style>
