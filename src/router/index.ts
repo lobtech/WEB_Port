@@ -1,12 +1,8 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 const routes = [
     {
-        path: '/',
-        redirect: '/home',
-    },
-    {
         name: 'home',
-        path: '/home',
+        path: '/',
         component: () => import('../views/home/index.vue'),
         meta: {
             keepAlive: true,

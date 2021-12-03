@@ -1,7 +1,7 @@
 <template>
     <!-- 通过innerWidth来动态判断显示不同屏幕的dom 统一调用父级js 节省内存开销 -->
-    <homeA v-if="innerWidth < 640"></homeA>
-    <!-- <homeB v-else-if="innerWidth < 1080"></homeB> -->
+    <homeA v-if="innerWidth < 750"></homeA>
+    <homeB v-else-if="innerWidth < 1200"></homeB>
     <homeC v-else></homeC>
 </template>
 <script setup lang="ts">
