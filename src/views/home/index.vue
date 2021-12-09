@@ -14,6 +14,8 @@ import store from '@/store'
 // @ts-ignore 忽略检测
 import Moralis from 'moralis/dist/moralis.min.js'
 
+
+
 const innerWidth = computed(() => store.state.sys?.innerWidth || 0) // 监听屏幕宽度
 
 // 首屏加载

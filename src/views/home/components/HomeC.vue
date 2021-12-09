@@ -10,6 +10,8 @@
                 <div class="item" @click="toMarket">Market</div>
                 <div class="span"></div>
                 <div class="item" @click="toWiki">Wiki</div>
+                <div class="span"></div>
+                <div class="item" @click="toAirdrop">Airdrop</div>
             </div>
             <div class="tips" @click="connect(false)">{{ id || 'connect to wallet'}}</div>
         </div>
@@ -107,7 +109,7 @@
             <span>www.hbeasts.com</span>
         </h1>
         <div class="token-content">
-            <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 300,000,00</h1>
+            <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 30,000,000</h1>
             <div class="token1-content">
                 <img src="../../../assets/image/token1.png" class="token1" alt="">
             </div>
@@ -190,19 +192,26 @@
 </template>
 <script setup lang="ts">
 import store from '@/store'
-import { computed, readonly, ref, provide, inject, onMounted } from 'vue'
+import { computed, readonly, ref, provide, inject, onMounted, onUnmounted } from 'vue'
+import {  useRouter } from 'vue-router'
 import { Moralis, getNativeBalance, getTokenBalances, getNFTOwners, getAllTokenIds, getNFTs, transfer, callCloud, addListing } from '@/tools/moralis';
+
+const router = useRouter()
 const toWiki: any = () => {
     window.open('https://wiki.hbeasts.com/');
 }
 const toMarket: any = () => {
-    window.open('https://test2.pryun.vip/home');
+    // window.open('https://test2.pryun.vip/home');
+    router.push({ path: `/comingSoon` })
 }
 const toPdf: any = () => {
     window.open('https://www.hbeasts.com/design.pdf');
 }
 const toSub: any = () => {
     window.open('https://70iaogphcx0.typeform.com/to/Cl2GH4Gt');
+}
+const toAirdrop: any = () => {
+    router.push({ path: `/airdrop` })
 }
 let id = ref("");
 let right = ref(1);
@@ -246,6 +255,9 @@ const mouseover: any = () => {
     if(!test) Marquee();
 }
 onMounted(()=>{
+    right.value = 0;
+    console.log(right.value);
+    
     setTimeout(() => {
         Marquee();
     }, 2000);
@@ -257,7 +269,9 @@ onMounted(()=>{
         
     })
 })
-
+onUnmounted(()=>{
+    clearInterval(test)
+})
 // scrollToBottom() {
 //             this.$nextTick(() =>{
 //                 this.$refs.chatContent.scrollTop = this.$refs.chatContent.scrollHeight;
@@ -267,9 +281,6 @@ onMounted(()=>{
 </script>
 
 <style lang="less" scoped>
-@media screen {
-    
-}
 .home {
     background-image: url('@/assets/image/0-2.jpg');
     background-size: cover;

@@ -5,7 +5,27 @@ const routes = [
         path: '/',
         component: () => import('../views/home/index.vue'),
         meta: {
-            keepAlive: true,
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
+        name: 'comingSoon',
+        path: '/comingSoon',
+        component: () => import('../views/comingSoon/comingSoon.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
+        name: 'airdrop',
+        path: '/airdrop',
+        component: () => import('../views/airdrop/airdrop.vue'),
+        meta: {
+            keepAlive: false,
             showFooter: true,
             transition: 'slide-right',
         },

@@ -7,12 +7,13 @@ const appId = store.state.moralis?.appId
 Moralis.start({ serverUrl, appId }) // 连接到服务器
 
 const chain = store.state.moralis?.chain
-const address = store.state.moralis?.user.accounts
+const address = '0xF55c6Be2F9390301bFc66Dd9f7f52495B56301dC' || store.state.moralis?.user.accounts
 // 查询本地余额
 const getNativeBalance = async () => {
     console.log(`---------->查询本地余额:address`, address)
     const res = await Moralis.Web3API.account.getNativeBalance({ chain, address })
     console.log(`---------->日志输出:res`, res)
+    return res;
 }
 
 // 查询令牌余额

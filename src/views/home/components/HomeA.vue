@@ -10,6 +10,8 @@
                 <div class="item" @click="toMarket">Market</div>
                 <div class="span"></div>
                 <div class="item" @click="toWiki">Wiki</div>
+                <div class="span"></div>
+                <div class="item" @click="toAirdrop">Airdrop</div>
             </div>
         </div>
         <!-- <div class="title-text">{{ title }}</div> -->
@@ -111,6 +113,7 @@
     <div class="token-omics">
         <div class="token-content">
             <h2>TOKENOMICS</h2>
+            <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB.<br /></span> Total Supply: 30,000,000</h1>
             <div>
                 <div class="table">
                     <div>Type</div>
@@ -278,10 +281,18 @@
             </div>
         </div>
     </div>
+    <!-- <div class="pdf">
+      <pdf>
+        :src="pdfSrc"
+      </pdf>
+    </div> -->
 </template>
 <script setup lang="ts">
-import { computed, readonly, ref, provide, inject, onMounted } from 'vue'
+import { computed, readonly, ref, provide, inject, onMounted, onUnmounted } from 'vue'
+import {  useRouter } from 'vue-router'
 import { Moralis, getNativeBalance, getTokenBalances, getNFTOwners, getAllTokenIds, getNFTs, transfer, callCloud, addListing } from '@/tools/moralis';
+// import pdf from 'vue-pdf' // 引入pdf组件/
+const router = useRouter()
 
 // import Moralis from 'moralis/dist/moralis.min.js'
 const id = ref("")
@@ -307,10 +318,14 @@ const toWiki: any = () => {
     window.open('https://wiki.hbeasts.com/');
 }
 const toMarket: any = () => {
-    window.open('https://test2.pryun.vip/home');
+    // window.open('https://test2.pryun.vip/home');
+    router.push({ path: `/comingSoon` })
 }
 const toPdf: any = () => {
-    window.open('https://www.hbeasts.com/design.pdf');
+    window.open('https://test3.pryun.vip/pdf.html');
+}
+const toAirdrop: any = () => {
+    router.push({ path: `/airdrop` })
 }
 const toSub: any = () => {
     window.open('https://70iaogphcx0.typeform.com/to/Cl2GH4Gt');
@@ -327,6 +342,12 @@ const Marquee: any = () => {
     }
     test = setInterval(Marquee,speed);
 }
+const pdfSrc = ref('./test.pdf');
+const openPdf: any = (url: any) => {
+    //实例化
+    
+};
+
 
 onMounted(()=>{
     setTimeout(() => {
@@ -339,6 +360,9 @@ onMounted(()=>{
         console.log(res, 'err');
         
     })
+})
+onUnmounted(()=>{
+    clearInterval(test)
 })
 </script>
 
@@ -618,6 +642,12 @@ onMounted(()=>{
     align-items: center;
     position: relative;
     .token-content{
+        h1{
+            width: 90vw;
+            text-align: center;
+            line-height: 6vw;
+            margin-bottom: 10vw;
+        }
         h2{
             font-size: 8vw;
             margin-bottom: 10vw;

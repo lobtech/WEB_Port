@@ -10,6 +10,8 @@
                 <div class="item" @click="toMarket">Market</div>
                 <div class="span"></div>
                 <div class="item" @click="toWiki">Wiki</div>
+                <div class="span"></div>
+                <div class="item" @click="toAirdrop">Airdrop</div>
             </div>
             <div class="tips" @click="connect(false)">{{ id || 'connect to wallet'}}</div>
         </div>
@@ -107,7 +109,7 @@
             <span>www.hbeasts.com</span>
         </h1>
         <div class="token-content">
-            <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 300,000,00</h1>
+            <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 30,000,000</h1>
             <div class="token1-content">
                 <img src="../../../assets/image/token1.png" class="token1" alt="">
             </div>
@@ -192,16 +194,25 @@
 </template>
 <script setup lang="ts">
 import store from '@/store'
-import { computed, readonly, ref, provide, inject, onMounted } from 'vue'
+import { computed, readonly, ref, provide, inject, onMounted, onUnmounted } from 'vue'
 import { Moralis, getNativeBalance, getTokenBalances, getNFTOwners, getAllTokenIds, getNFTs, transfer, callCloud, addListing } from '@/tools/moralis';
+import {  useRouter } from 'vue-router'
+
+
+const router = useRouter()
+
 const toWiki: any = () => {
     window.open('https://wiki.hbeasts.com/');
 }
 const toMarket: any = () => {
-    window.open('https://test2.pryun.vip/home');
+    // window.open('https://test2.pryun.vip/home');
+     router.push({ path: `/comingSoon` })
 }
 const toPdf: any = () => {
     window.open('https://www.hbeasts.com/design.pdf');
+}
+const toAirdrop: any = () => {
+    router.push({ path: `/airdrop` })
 }
 const toSub: any = () => {
     window.open('https://70iaogphcx0.typeform.com/to/Cl2GH4Gt');
@@ -259,7 +270,9 @@ onMounted(()=>{
         
     })
 })
-
+onUnmounted(()=>{
+    clearInterval(test)
+})
 // scrollToBottom() {
 //             this.$nextTick(() =>{
 //                 this.$refs.chatContent.scrollTop = this.$refs.chatContent.scrollHeight;
@@ -533,7 +546,7 @@ onMounted(()=>{
     }
 }
 .video{
-    height: 60vh !important;
+    // height: 60vh !important;
     .title{
         font-size: 2vw;
         font-weight: 600;
@@ -589,6 +602,7 @@ onMounted(()=>{
 }
 .token-omics{
     position: relative;
+    height: auto;
     & > h1{
         position: absolute;
         left: 0;
@@ -605,8 +619,7 @@ onMounted(()=>{
     }
     .token-content{
         position: relative;
-        margin-top: 2vw;
-        margin-top: 40px;
+        padding-top: 10vw;
         h1{
             // position: absolute;
             left: 0;
@@ -640,11 +653,13 @@ onMounted(()=>{
 }
 .road-map{
     position: relative;
+    height: auto;
+    min-height: 100vh !important;
     & > h1{
         position: absolute;
         left: 0;
         right: 0;
-        top: 15vw;
+        top: 3vw;
         margin: 0 auto;
         color: #fff;
         font-size: 3vw;
@@ -665,6 +680,8 @@ onMounted(()=>{
     }
 }
 .team{
+    height: auto;
+    min-height: 100vh;
     & > h1{
         position: absolute;
         left: 0;
