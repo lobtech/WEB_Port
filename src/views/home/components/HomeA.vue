@@ -231,7 +231,7 @@
                 <div class="item">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/4..png" alt="">
-                        <h2>CEO</h2>
+                        <h2>Product/Founder</h2>
                     </div>
                     <div class="text">
                         <h2>Feng Cheng</h2>
@@ -240,11 +240,21 @@
                 </div>
                 <div class="item">
                     <div class="head">
-                        <img src="https://d1td2c8hf7fv9k.cloudfront.net/6.png" alt="">
-                        <h2>CEO</h2>
+                        <img style="border-radius: 50%;" src="@/assets/image/toonmecom_ff9622.jpg" alt="">
+                        <h2>Marketing/Founder</h2>
                     </div>
                     <div class="text">
-                        <h2>Frank</h2>
+                        <h2>Una</h2>
+                        <span>In changre of Business Development, over 4 years experience in the blockchain industry, focusing on relationship management and negotiation with institution/VIP clients.</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="head">
+                        <img src="https://d1td2c8hf7fv9k.cloudfront.net/6.png" alt="">
+                        <h2>COO/Founder</h2>
+                    </div>
+                    <div class="text">
+                        <h2>Thor</h2>
                         <span>Deep understanding of financial regulations and cryptocurrencies, have professional user scene In the game field</span>
                     </div>
                 </div>
@@ -261,7 +271,7 @@
                 <div class="item">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/3..png" alt="">
-                        <h2>CTO</h2>
+                        <h2>Web developer</h2>
                     </div>
                     <div class="text">
                         <h2>Shreyas Vasuki</h2>
@@ -271,10 +281,10 @@
                 <div class="item">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/5.png" alt="">
-                        <h2>CMO</h2>
+                        <h2>User grow developer</h2>
                     </div>
                     <div class="text">
-                        <h2>Roll</h2>
+                        <h2>Wong</h2>
                         <span>has more than 4 years of working experience in cryptocurrency exchanges, have unique brand version and market experience.</span>
                     </div>
                 </div>
@@ -739,20 +749,21 @@ onUnmounted(()=>{
             width: 100%;
             .item{
                 display: flex;
-                margin-bottom: 2vw;
+                margin-bottom: 6vw;
                 .head{
-                    width: 20%;
+                    width: 30%;
                     img{
                         width: 100%;
                     }
                     h2{
                         text-align: center;
                         font-size: 1vw;
+                        white-space:nowrap;
                     }
                 }
                 .text{
-                    width: 80%;
-                    padding: 1vw;
+                    width: 70%;
+                    padding-left: 3vw;
                     h2{
                         font-size: 7vw;
                     }

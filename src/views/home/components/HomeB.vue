@@ -106,7 +106,7 @@
     <div class="token-omics">
         <h1>
             <span>TOKENOMICS</span>
-            <span>www.hbeasts.com</span>
+            <span></span>
         </h1>
         <div class="token-content">
             <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 30,000,000</h1>
@@ -120,7 +120,7 @@
     <div class="road-map">
         <h1>
             <span>ROAD MAP</span>
-            <span>www.hbeasts.com</span>
+            <span></span>
         </h1>
         <div class="road-content">
             <img src="https://d1td2c8hf7fv9k.cloudfront.net/road.png" alt="">
@@ -130,18 +130,28 @@
     <div class="team">
         <h1>
             <span>TEAM</span>
-            <span>www.hbeasts.com</span>
+            <span></span>
         </h1>
         <div class="team-content">
             <div class="items1">
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/4..png" alt="">
-                        <p>CEO</p>
+                        <p>Product/Founder</p>
                     </div>
                     <div>
                         <h3>Feng Cheng</h3>
                         <span>Former Huawei manager have 5 years global working Experience, with rich project experience in the field of software development and product management.</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <img style="border-radius: 50%;" src="@/assets/image/toonmecom_ff9622.jpg" alt="">
+                        <p>Marketing/Founder</p>
+                    </div>
+                    <div>
+                        <h3>Una</h3>
+                        <span>In changre of Business Development, over 4 years experience in the blockchain industry, focusing on relationship management and negotiation with institution/VIP clients.</span>
                     </div>
                 </div>
             </div>
@@ -149,10 +159,10 @@
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/6.png" alt="">
-                        <p>COO</p>
+                        <p>COO/Founder</p>
                     </div>
                     <div>
-                        <h3>Frank</h3>
+                        <h3>Thor</h3>
                         <span>Deep understanding of financial regulations and cryptocurrencies, have professional user scene In the game field</span>
                     </div>
                 </div>
@@ -171,7 +181,7 @@
                  <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/3..png" alt="">
-                        <p>CTO</p>
+                        <p>Web developer</p>
                     </div>
                     <div>
                         <h3 style="width: 165%">Shreyas Vasuki</h3>
@@ -181,10 +191,10 @@
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/5.png" alt="">
-                        <p>CMO</p>
+                        <p>User grow developer</p>
                     </div>
                     <div>
-                        <h3>Roll</h3>
+                        <h3>Wong</h3>
                         <span>has more than 4 years of working experience in cryptocurrency exchanges, have unique brand version and market experience.</span>
                     </div>
                 </div>
@@ -659,7 +669,7 @@ onUnmounted(()=>{
 .road-map{
     position: relative;
     height: auto;
-    min-height: 100vh !important;
+    min-height: 70vh !important;
     & > h1{
         position: absolute;
         left: 0;
@@ -687,6 +697,7 @@ onUnmounted(()=>{
 .team{
     height: auto;
     min-height: 100vh;
+    padding-top: 10vw;
     & > h1{
         position: absolute;
         left: 0;
@@ -711,7 +722,7 @@ onUnmounted(()=>{
             margin-bottom: 50px;
         }
         .item{
-            width: 32vw;
+            width: 48vw;
             min-width: 364px;
             margin-bottom: 2vw;
             // height: 20vw;
@@ -724,7 +735,7 @@ onUnmounted(()=>{
                     margin-bottom: 1vw;
                     font-size: 3vw;
                     font-weight: 600;
-                    text-align: center;
+                    text-align: left;
                 }
                 span{
                     font-size: 1.9vw;
@@ -740,6 +751,7 @@ onUnmounted(()=>{
                     font-size: 2vw;
                     font-weight: 600;
                     text-align: center;
+                    white-space:nowrap;
                 }
             }
             img{

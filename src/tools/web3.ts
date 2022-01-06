@@ -7,8 +7,8 @@ const Moralis = (window as any).Moralis // 引用全局的Moralis 在index.html�
 const login = async () => {
     const ethereum = (window as any).ethereum // 获取小狐狸实例
     if (typeof ethereum.isMetaMask === 'undefined') {
-        alert('看起来您需要一个 Dapp 浏览器才能开始使用。')
-        alert('请安装 MetaMask！')
+        alert('install dapp')  //没有钱包 请安装钱包
+        alert('install metamask')  //没有钱包 请安装钱包
     }
     return ethereum.request({ method: 'eth_requestAccounts' })
 }
@@ -24,8 +24,8 @@ const getAccounts = async () => {
 const getBalance = async (address: string = '0xF55c6Be2F9390301bFc66Dd9f7f52495B56301dC') => {
     const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
     const res = await web3.eth.getBalance(address)
-    console.log(`---------->日志输出:getBalance`, res)
-    return res
+    console.log(`---------->日志输出: `, res)
+    return res 
 }
 
 // 查询合约对象
@@ -194,6 +194,37 @@ const purchase = () => {
         })
 }
 
+const stock = async () => {
+    const { abi, address } = contracts['stock']
+    const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
+    const contract = new web3.eth.Contract(abi, address) // 创建合约
+    console.log(contract.methods.mint);
+    // const res = await contract.methods.m_token().call()
+    const res = await contract.methods.mint(100)
+    .send({ from: '0xfc6a38DCd922bBbf3707D955B3202D221a2D2FE6' })
+    .on('transactionHash', function (hash: any) {
+        console.log(`---------->日志输出:hash`, hash)
+    })
+    .on('receipt', function (receipt: any) {
+        console.log(`---------->日志输出:receipt`, receipt)
+    })
+    .on('confirmation', function (confirmationNumber: any, receipt: any) {
+        console.log(`---------->日志输出:confirmationNumber, receipt`, confirmationNumber, receipt)
+    })
+    .on('error', (err: any) => {
+        console.log(`---------->日志输出:err`, err)
+    })
+    console.log(res);
+    
+}
+
+const airDropTest = {
+    contains: () => {
+        console.log(111);
+        
+    }
+}
+
 export default {
     login,
     getAccounts,
@@ -209,4 +240,6 @@ export default {
     send,
     addListing,
     purchase,
+    stock,
+    airDropTest
 }

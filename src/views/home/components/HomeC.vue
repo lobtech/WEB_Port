@@ -106,7 +106,7 @@
     <div class="token-omics">
         <h1>
             <span>TOKENOMICS</span>
-            <span>www.hbeasts.com</span>
+            <span></span>
         </h1>
         <div class="token-content">
             <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 30,000,000</h1>
@@ -120,7 +120,7 @@
     <div class="road-map">
         <h1>
             <span>ROAD MAP</span>
-            <span>www.hbeasts.com</span>
+            <span></span>
         </h1>
         <div class="road-content">
             <img src="https://d1td2c8hf7fv9k.cloudfront.net/road.png" alt="">
@@ -130,14 +130,14 @@
     <div class="team">
         <h1>
             <span>TEAM</span>
-            <span>www.hbeasts.com</span>
+            <span></span>
         </h1>
         <div class="team-content">
             <div class="items1">
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/4..png" alt="">
-                        <p>CEO</p>
+                        <p>Product/Founder</p>
                     </div>
                     <div>
                         <h3>Feng Cheng</h3>
@@ -146,22 +146,22 @@
                 </div>
                 <div class="item">
                     <div>
-                        <img src="https://d1td2c8hf7fv9k.cloudfront.net/6.png" alt="">
-                        <p>COO</p>
+                        <img style="border-radius: 50%;" src="@/assets/image/toonmecom_ff9622.jpg" alt="">
+                        <p>Marketing/Founder</p>
                     </div>
                     <div>
-                        <h3>Frank</h3>
-                        <span>Deep understanding of financial regulations and cryptocurrencies, have professional user scene In the game field</span>
+                        <h3>Una</h3>
+                        <span>In changre of Business Development, over 4 years experience in the blockchain industry, focusing on relationship management and negotiation with institution/VIP clients.</span>
                     </div>
                 </div>
                 <div class="item">
                     <div>
-                        <img src="https://d1td2c8hf7fv9k.cloudfront.net/7.png" alt="">
-                        <p>Visual director</p>
+                        <img src="https://d1td2c8hf7fv9k.cloudfront.net/6.png" alt="">
+                        <p>COO/Founder</p>
                     </div>
                     <div>
-                        <h3>Jack</h3>
-                        <span>Former gameloft game planner, good at realistic character depiction and detailed control, able to guide any style of game</span>
+                        <h3>Thor</h3>
+                        <span>Deep understanding of financial regulations and cryptocurrencies, have professional user scene In the game field</span>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/3..png" alt="">
-                        <p>CTO</p>
+                        <p>Web developer</p>
                     </div>
                     <div>
                         <h3 style="width: 115%">Shreyas Vasuki</h3>
@@ -179,11 +179,21 @@
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/5.png" alt="">
-                        <p>CMO</p>
+                        <p>User grow developer</p>
                     </div>
                     <div>
-                        <h3>Roll</h3>
+                        <h3>Wong</h3>
                         <span>has more than 4 years of working experience in cryptocurrency exchanges, have unique brand version and market experience.</span>
+                    </div>
+                </div>
+                 <div class="item">
+                    <div>
+                        <img src="https://d1td2c8hf7fv9k.cloudfront.net/7.png" alt="">
+                        <p>Visual director</p>
+                    </div>
+                    <div>
+                        <h3>Jack</h3>
+                        <span>Former gameloft game planner, good at realistic character depiction and detailed control, able to guide any style of game</span>
                     </div>
                 </div>
             </div>
@@ -712,8 +722,8 @@ onBeforeUnmount(() => {
             // height: 20vw;
             div{
                 width: 60%;
+                padding: 0 0 0 23px;
                 display: inline-block;
-                padding: 15px;
                 h3{
                     margin-bottom: 1vw;
                     font-size: 2vw;
@@ -721,7 +731,7 @@ onBeforeUnmount(() => {
                     text-align: center;
                 }
                 span{
-                    font-size: 1.2vw;
+                    font-size: 1vw;
                     line-height: 1.4vw;
                 }
             }
@@ -729,11 +739,20 @@ onBeforeUnmount(() => {
                 width: 40%;
                 text-align: center;
                 vertical-align: top;
+                position: relative;
+                padding: 15px;
                 p{
                     margin-top: 1vw;
-                    font-size: 2vw;
+                    font-size: 1.1vw;
                     font-weight: 600;
                     text-align: center;
+                    position: absolute;
+                    display: inline-block;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    bottom: -12px;
+                    white-space:nowrap;
                 }
             }
             img{

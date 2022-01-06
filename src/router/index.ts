@@ -30,6 +30,16 @@ const routes = [
             transition: 'slide-right',
         },
     },
+    {
+        name: 'test',
+        path: '/test',
+        component: () => import('../views/test/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
 ]
 
 const router = createRouter({

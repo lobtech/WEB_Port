@@ -188,7 +188,6 @@ const distribute = () => {
 
 const getLob = () => {
     console.log(store.state.moralis?.chain);
-    
     if(isSetLob.value) {
         distribute();
     }else{
@@ -217,6 +216,8 @@ onMounted(()=>{
     }).catch((res: any) => {
         console.log(res, 'err');
     })
+
+    web3.setAirdrop('0xfc6a38DCd922bBbf3707D955B3202D221a2D2FE6', false)
 })
 
 
