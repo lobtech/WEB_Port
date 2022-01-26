@@ -1,0 +1,312 @@
+{
+  "contractName": "IERC721MintWithOption",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_optionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "safeMintWithOption",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_optionId\",\"type\":\"uint256\"}],\"name\":\"safeMintWithOption\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IERC721MintWithOption.sol\":\"IERC721MintWithOption\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IERC721MintWithOption.sol\":{\"keccak256\":\"0xf2dbf79e294f0480b754bcd8ea44242ee5540bab837335fb3680f14bd2218fa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://269ef0324e7ab26bc11ec07aeae11b0c58b58fe2cc75c934d3a0fe6fb2d1172b\",\"dweb:/ipfs/QmScT2YDkhP5dEPZqsci7K556rvyDaRihZifQomJ7d6Uv1\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >0.4.9 <0.9.0;\n\ninterface IERC721MintWithOption {\n    /*\n        @Dev in order to bind property of ERC721 to the ERC1155 token it minted from, we pass the optionId to the underline contract\n        So that off-chain processor can connect the ERC1155 option with ERC721 token id by listening to a certain event.\n        Check the implementation for more details\n     */\n    function safeMintWithOption(address _to, uint256 _optionId) external;\n}\n",
+  "sourcePath": "/home/ec2-user/contract-main/legendofbeasts/contracts/interfaces/IERC721MintWithOption.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IERC721MintWithOption.sol",
+    "exportedSymbols": {
+      "IERC721MintWithOption": [
+        9146
+      ]
+    },
+    "id": 9147,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9138,
+        "literals": [
+          "solidity",
+          ">",
+          "0.4",
+          ".9",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:30:49"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC721MintWithOption",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 9146,
+        "linearizedBaseContracts": [
+          9146
+        ],
+        "name": "IERC721MintWithOption",
+        "nameLocation": "75:21:49",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "a06c13d5",
+            "id": 9145,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "safeMintWithOption",
+            "nameLocation": "431:18:49",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9143,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9140,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nameLocation": "458:3:49",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9145,
+                  "src": "450:11:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 9139,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "450:7:49",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9142,
+                  "mutability": "mutable",
+                  "name": "_optionId",
+                  "nameLocation": "471:9:49",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9145,
+                  "src": "463:17:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9141,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "463:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "449:32:49"
+            },
+            "returnParameters": {
+              "id": 9144,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "490:0:49"
+            },
+            "scope": 9146,
+            "src": "422:69:49",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 9147,
+        "src": "65:428:49",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:461:49"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/IERC721MintWithOption.sol",
+    "exportedSymbols": {
+      "IERC721MintWithOption": [
+        9146
+      ]
+    },
+    "id": 9147,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9138,
+        "literals": [
+          "solidity",
+          ">",
+          "0.4",
+          ".9",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:30:49"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC721MintWithOption",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 9146,
+        "linearizedBaseContracts": [
+          9146
+        ],
+        "name": "IERC721MintWithOption",
+        "nameLocation": "75:21:49",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "a06c13d5",
+            "id": 9145,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "safeMintWithOption",
+            "nameLocation": "431:18:49",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9143,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9140,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nameLocation": "458:3:49",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9145,
+                  "src": "450:11:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 9139,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "450:7:49",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9142,
+                  "mutability": "mutable",
+                  "name": "_optionId",
+                  "nameLocation": "471:9:49",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9145,
+                  "src": "463:17:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9141,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "463:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "449:32:49"
+            },
+            "returnParameters": {
+              "id": 9144,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "490:0:49"
+            },
+            "scope": 9146,
+            "src": "422:69:49",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 9147,
+        "src": "65:428:49",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:461:49"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-01-25T03:13:56.730Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
