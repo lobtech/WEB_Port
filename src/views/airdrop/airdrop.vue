@@ -40,7 +40,7 @@
             <div>
                 <div class="lost-lob">last Lob: <span>{{ pool }}</span></div>
                 <div class="token-address"><span></span>Token Address:  0x934c9c52730Fe26187583Ed3712c17576901B68F</div>
-                <div class="subscribes" v-if="1">
+                <div class="subscribes" v-if="innerWidth > 740">
                     <div v-for="(item, index) in subscribes" :key="index">
                         <a :href="item.link" target="view_window">
                             <img :src="item.img" alt="" />
@@ -50,7 +50,17 @@
                     </div>
                 </div>
                 <div class="subscribes2" v-else>
-                    <swiper :subs='subscribes'/>
+                    <swiper :navigation="true" class="mySwiper">
+                        <swiper-slide v-for="(item, index) in subscribes" :key="index">
+                            <div class="loop">
+                                <a :href="item.link" target="view_window">
+                                    <img :src="item.img" alt="" />
+                                </a>
+                                <p v-if="item.state">Subscribed</p>
+                                <p v-else>check subscribe</p>
+                            </div>
+                        </swiper-slide>
+                    </swiper>
                 </div>
                 <div :class='{"get-lob": true, "get-lob2": isSetLob}'>
                     <span rel="nofollow" class="springtime-Link" @click="getLob">Get LOB!!!</span>
@@ -65,10 +75,19 @@
 import { computed, readonly, ref, provide, inject, onMounted, onUnmounted } from 'vue'
 import {  useRouter } from 'vue-router'
 import { Moralis, getNativeBalance, getTokenBalances, getNFTOwners, getAllTokenIds, getNFTs, transfer, callCloud, addListing } from '@/tools/moralis';
-import swiper from './components/swiper.vue';
+// import swiper from './components/swiper.vue';
 import web3 from '@/tools/web3';
 import contracts from '@/tools/contracts'
 import store from '@/store'
+// 引入swiper
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import "swiper/css/navigation"
+import SwiperCore, {
+  Navigation
+} from 'swiper';
+SwiperCore.use([Navigation]);
+
 
 
 console.log(store.state, 'store');
@@ -220,10 +239,11 @@ onMounted(()=>{
     web3.setAirdrop('0xfc6a38DCd922bBbf3707D955B3202D221a2D2FE6', false)
 })
 
-
 </script>
 
-<style lang="less" scoped>
+<style lang="less" scoped>   
+
+               
 @keyframes springtimeAniamtScale2 {
     0% {
         transform: scale(1);
@@ -338,6 +358,7 @@ onMounted(()=>{
         justify-content: center;
         font-size: 4vw;
         width: 100%;
+        // overflow: hidden;
         height: 100%;
         font-weight: 600;
         color: #ffffff;
@@ -411,6 +432,60 @@ onMounted(()=>{
                 transform: scale(1.2);
             }
         }
+        .subscribes2{
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            overflow-x:auto;
+            .swiper{
+                --swiper-navigation-color:color: #fff;
+  .subscribes2>.swiper>.swiper-button-next{
+        font-style: #fff;
+    color: #fff !important;
+    background: red;
+}  
+.swiper-button-next:after, .swiper-button-prev:after{
+    color: #fff !important;
+
+}
+                .loop{
+                // width: 30vw;
+                width:100%;
+                min-width: 50px;
+                font-size: 3vw;
+                text-align: center;
+                transition-property: all;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 0.15s;
+                cursor: pointer;
+                // border: 1px solid;
+                padding: 1vw 0;
+                border-radius: 1vw;
+                flex-shrink: 0;
+                
+                p{
+                    margin: 1vw 0;
+                    font-size: 6vw;
+                }
+                img{
+                    width: 40%;
+                }
+            }
+            }
+            
+          
+            
+            .loop{
+                margin-right: 2%;
+            }
+            .loop:last-child{
+                margin-right: 0%;
+            }
+            // .loop:hover{
+            //     transform: scale(1.2);
+            // }
+        }
+
     }
     .navbar {
         position: fixed;
@@ -491,6 +566,7 @@ onMounted(()=>{
             color: rgba(255, 255, 255, 0.8);
         }
     }
+  
 
 }
 
