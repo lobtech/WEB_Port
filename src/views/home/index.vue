@@ -13,7 +13,12 @@ import { computed, readonly, ref, provide } from 'vue'
 import store from '@/store'
 // @ts-ignore 忽略检测
 import Moralis from 'moralis/dist/moralis.min.js'
-
+// let web3=new Web3()
+// web3
+// let web3=require('web3')
+// web3 = new web3(new web3.providers.Httpprovider("ws://localhost:8545"))
+// var Web3 = require('web3');
+// console.log(web3)
 
 
 const innerWidth = computed(() => store.state.sys?.innerWidth || 0) // 监听屏幕宽度

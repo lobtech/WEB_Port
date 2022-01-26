@@ -31,6 +31,16 @@ const routes = [
         },
     },
     {
+        name: 'egg',
+        path: '/egg',
+        component: () => import('../views/egg/eggLncubator.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
         name: 'test',
         path: '/test',
         component: () => import('../views/test/index.vue'),
@@ -40,6 +50,7 @@ const routes = [
             transition: 'slide-right',
         },
     },
+    
 ]
 
 const router = createRouter({

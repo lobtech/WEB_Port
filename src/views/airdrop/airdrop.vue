@@ -13,6 +13,8 @@
                 <div class="item" @click="toWiki">Wiki</div>
                 <div class="span"></div>
                 <div class="item item-active">Airdrop</div>
+                <div class="span"></div>
+                <div class="item" @click="toEgg">Egg lncubator</div>
             </div>
             <div class="tips" @click="connect(false)">{{ id || 'connect to wallet'}}</div>
         </div>
@@ -29,6 +31,8 @@
                     <div class="item" @click="toWiki">Wiki</div>
                     <div class="span"></div>
                     <div class="item">Airdrop</div>
+                    <div class="span"></div>
+                <div class="item" @click="toEgg">Egg lncubator</div>
                 </div>
             </div>
             <!-- <div class="title-text">{{ title }}</div> -->
@@ -50,17 +54,13 @@
                     </div>
                 </div>
                 <div class="subscribes2" v-else>
-                    <swiper :navigation="true" class="mySwiper">
-                        <swiper-slide v-for="(item, index) in subscribes" :key="index">
-                            <div class="loop">
+                            <div class="loop" v-for="(item, index) in subscribes" :key="index">
                                 <a :href="item.link" target="view_window">
                                     <img :src="item.img" alt="" />
                                 </a>
                                 <p v-if="item.state">Subscribed</p>
                                 <p v-else>check subscribe</p>
                             </div>
-                        </swiper-slide>
-                    </swiper>
                 </div>
                 <div :class='{"get-lob": true, "get-lob2": isSetLob}'>
                     <span rel="nofollow" class="springtime-Link" @click="getLob">Get LOB!!!</span>
@@ -140,6 +140,10 @@ const toPdf: any = () => {
 }
 const toSub: any = () => {
     window.open('https://70iaogphcx0.typeform.com/to/Cl2GH4Gt');
+}
+const toEgg: any = () => {
+    router.push({ path: `/egg` })
+    
 }
 const confim: any = (e: any) => {
     alertFlag.value = false;
@@ -243,7 +247,20 @@ onMounted(()=>{
 
 <style lang="less" scoped>   
 
-               
+@keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }              
 @keyframes springtimeAniamtScale2 {
     0% {
         transform: scale(1);
@@ -352,6 +369,8 @@ onMounted(()=>{
     height: 100%;
     // display: flex;
     .position{
+    animation: fadeInDown .8s linear;
+
         background-color: rgba(0, 0, 0, 0.2);
         display: flex;
         align-items: center;
@@ -373,13 +392,13 @@ onMounted(()=>{
             animation: test 1s linear;
         }
         .lost-lob{
-            text-align: center;
+            text-align: center;    
         }
         .token-address{
             font-size: 1vw;
             text-align: center;
             margin: 2vw;
-        }
+            }
         .get-lob2{
             animation: springtimeAniamtScale2 1.2s linear infinite;
             background-image: linear-gradient(180deg,#ffe65c 0,#ffb13b 100%) !important;
@@ -433,45 +452,35 @@ onMounted(()=>{
             }
         }
         .subscribes2{
-            width: 100vw;
+            // width: 80vw;
             display: flex;
-            flex-direction: row;
-            overflow-x:auto;
-            .swiper{
-                --swiper-navigation-color:color: #fff;
-  .subscribes2>.swiper>.swiper-button-next{
-        font-style: #fff;
-    color: #fff !important;
-    background: red;
-}  
-.swiper-button-next:after, .swiper-button-prev:after{
-    color: #fff !important;
-
-}
-                .loop{
-                // width: 30vw;
-                width:100%;
+            justify-content: center;
+            & > div{
+                width: 15vw;
                 min-width: 50px;
-                font-size: 3vw;
+                font-size: 1vw;
                 text-align: center;
                 transition-property: all;
                 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
                 transition-duration: 0.15s;
                 cursor: pointer;
-                // border: 1px solid;
+                border: 1px solid;
                 padding: 1vw 0;
                 border-radius: 1vw;
-                flex-shrink: 0;
-                
                 p{
                     margin: 1vw 0;
-                    font-size: 6vw;
                 }
                 img{
                     width: 40%;
                 }
             }
+            & > div:not(:last-child){
+                margin-right: 2%;
             }
+            & > div:hover{
+                transform: scale(1.2);
+            }
+        }
             
           
             
@@ -568,6 +577,6 @@ onMounted(()=>{
     }
   
 
-}
+
 
 </style>

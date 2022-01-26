@@ -12,6 +12,8 @@
                 <div class="item" @click="toWiki">Wiki</div>
                 <div class="span"></div>
                 <div class="item" @click="toAirdrop">Airdrop</div>
+                <div class="span"></div>
+                <div class="item" @click="toEgg">Egg lncubator</div>
             </div>
         </div>
         <!-- <div class="title-text">{{ title }}</div> -->
@@ -30,9 +32,9 @@
         <!-- 中间按钮 -->
         <div class="home-menu">
             <div class="buttons">
-                <div class="menu-btn" @click="toPdf">READ LITEPAPER</div>
+                <div class="menu-btn buttonamnrig" @click="toPdf">READ LITEPAPER</div>
                 <div class="menu-position"></div>
-                <div class="menu-btn" @click="toSub">SUBSCRIBE</div>
+                <div class="menu-btn buttonamnleft" @click="toSub">SUBSCRIBE</div>
             </div>
             <div class="menu-icons">
                 <div class="menu-icon">
@@ -111,7 +113,7 @@
     </div>
     <!-- token-omics -->
     <div class="token-omics">
-        <div class="token-content">
+        <div class="token-content" id="ele3">
             <h2>TOKENOMICS</h2>
             <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB.<br /></span> Total Supply: 30,000,000</h1>
             <div>
@@ -165,7 +167,7 @@
     </div>
     <!-- ROAD MAP -->
     <div class="road-map">
-        <div class="road-content">
+        <div class="road-content" id="ele4">
             <h1>ROAD MAP</h1>
             <div class="content">
                 <div class="item">
@@ -228,7 +230,7 @@
         <div class="team-content">
             <h1>TEAM</h1>
             <div class="content">
-                <div class="item">
+                <div class="item" id="ele5">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/4..png" alt="">
                         <h2>Product/Founder</h2>
@@ -238,7 +240,7 @@
                         <span>Former Huawei manager have 5 years global working Experience, with rich project experience in the field of software development and product management.</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele6">
                     <div class="head">
                         <img style="border-radius: 50%;" src="@/assets/image/toonmecom_ff9622.jpg" alt="">
                         <h2>Marketing/Founder</h2>
@@ -248,7 +250,7 @@
                         <span>In changre of Business Development, over 4 years experience in the blockchain industry, focusing on relationship management and negotiation with institution/VIP clients.</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele7">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/6.png" alt="">
                         <h2>COO/Founder</h2>
@@ -258,7 +260,7 @@
                         <span>Deep understanding of financial regulations and cryptocurrencies, have professional user scene In the game field</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele8">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/7.png" alt="">
                         <h2>Visual director</h2>
@@ -268,7 +270,7 @@
                         <span>Former gameloft game planner, good at realistic character depiction and detailed control, able to guide any style of game</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele9">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/3..png" alt="">
                         <h2>Web developer</h2>
@@ -278,7 +280,7 @@
                         <span>with rich programming skills and problem-solving skills, familiar with blockchain application development.</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele10">
                     <div class="head">
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/5.png" alt="">
                         <h2>User grow developer</h2>
@@ -337,6 +339,10 @@ const toPdf: any = () => {
 const toAirdrop: any = () => {
     router.push({ path: `/airdrop` })
 }
+const toEgg: any = () => {
+    router.push({ path: `/egg` })
+    
+}
 const toSub: any = () => {
     window.open('https://70iaogphcx0.typeform.com/to/Cl2GH4Gt');
 }
@@ -357,9 +363,82 @@ const openPdf: any = (url: any) => {
     //实例化
     
 };
+// 动效，指定位置触发
+const checkScrollHeightAndLoadAnimation: any = () => {
+        const windowHeight: Number = window.innerHeight;
+
+
+        let ele3 = document.getElementById("ele3") as HTMLElement;
+        let ele4 = document.getElementById("ele4") as HTMLElement;
+        let ele5 = document.getElementById("ele5") as HTMLElement;
+        let ele6 = document.getElementById("ele6") as HTMLElement;
+        let ele7 = document.getElementById("ele7") as HTMLElement;
+        let ele8 = document.getElementById("ele8") as HTMLElement;
+        let ele9 = document.getElementById("ele9") as HTMLElement;
+        let ele10 = document.getElementById("ele10") as HTMLElement;
+
+        const ele3Top: Number = ele3.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele4Top: Number = ele4.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele5Top: Number = ele5.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele6Top: Number = ele6.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele7Top: Number = ele7.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele8Top: Number = ele8.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele9Top: Number = ele9.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele10Top: Number = ele10.getBoundingClientRect().top; //距离屏幕顶部的距离
+
+
+        let arr = [
+           
+            {
+                el: ele3,
+                top: ele3Top
+            },
+            {
+                el: ele4,
+                top: ele4Top
+            },
+            {
+                el: ele5,
+                top: ele5Top
+            },
+            {
+                el: ele6,
+                top: ele6Top
+            },
+            {
+                el: ele7,
+                top: ele7Top
+            },
+            {
+                el: ele8,
+                top: ele8Top
+            },
+            {
+                el: ele9,
+                top: ele9Top
+            },
+            {
+                el: ele10,
+                top: ele10Top
+            },
+        ]
+        
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i].top < windowHeight){
+
+                    arr[i].el.classList.add('left')
+                }
+                
+            }
+}
+
+
 
 
 onMounted(()=>{
+    // console.log(window.innerHeight);
+    window.addEventListener('scroll', checkScrollHeightAndLoadAnimation);
+    
     setTimeout(() => {
         Marquee();
     }, 2000);
@@ -406,6 +485,39 @@ onUnmounted(()=>{
     backdrop-filter: blur(20px);
     color: rgba(255, 255, 255, 1);
     z-index: 99900;
+}
+@keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+@keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(-100px);
+            -ms-transform: translateX(-100px);
+            transform: translateX(-100px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+
+.left{
+    animation: fadeInLeft .5s linear;
 }
 .title-logo {
     
@@ -482,6 +594,22 @@ onUnmounted(()=>{
         padding-bottom: 1.5vw;
     }
 }
+@keyframes buttonamnrig{
+    0%{
+        transform: translateX(300px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes buttonamnleft{
+    0%{
+        transform: translateX(-300px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
 .home-menu{
     width: 100%;
     padding-top: 6vh;
@@ -493,6 +621,15 @@ onUnmounted(()=>{
     display: flex;
     position: absolute;
     .buttons{
+        .buttonamnleft{
+    animation: buttonamnleft .8s linear;
+            
+        }
+        .buttonamnrig{
+    animation: buttonamnrig .8s linear;
+
+        }
+
         font-size: 1.125rem;
         line-height: 1.75rem;
         align-items: center;
@@ -619,6 +756,8 @@ onUnmounted(()=>{
         width: 100%;
         height: 63.75vw;
         position: relative;
+
+
         img{
             width: 148px;
             max-width: 148px;

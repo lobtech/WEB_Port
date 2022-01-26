@@ -13,6 +13,8 @@
                 <div class="item" @click="toWiki">Wiki</div>
                 <div class="span"></div>
                 <div class="item" @click="toAirdrop">Airdrop</div>
+                <div class="span"></div>
+                <div class="item" @click="toEgg">Egg lncubator</div>
             </div>
             <div class="tips" @click="connect(false)">{{ id || 'connect to wallet'}}</div>
         </div>
@@ -37,6 +39,10 @@ const toMarket: any = () => {
 }
 const toAirdrop = () => {
      router.push({ path: `/airdrop` })
+}
+const toEgg: any = () => {
+    router.push({ path: `/egg` })
+    
 }
 const toPdf: any = () => {
     window.open('https://www.hbeasts.com/design.pdf');

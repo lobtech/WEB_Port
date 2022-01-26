@@ -12,6 +12,8 @@
                 <div class="item" @click="toWiki">Wiki</div>
                 <div class="span"></div>
                 <div class="item" @click="toAirdrop">Airdrop</div>
+                <div class="span"></div>
+                <div class="item" @click="toEgg">Egg lncubator</div>
             </div>
             <div class="tips" @click="connect(false)">{{ id || 'connect to wallet'}}</div>
         </div>
@@ -108,7 +110,7 @@
             <span>TOKENOMICS</span>
             <span></span>
         </h1>
-        <div class="token-content">
+        <div class="token-content" id="ele1">
             <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 30,000,000</h1>
             <div class="token1-content">
                 <img src="https://d1td2c8hf7fv9k.cloudfront.net/token3.png" class="token1" alt="">
@@ -122,7 +124,7 @@
             <span>ROAD MAP</span>
             <span></span>
         </h1>
-        <div class="road-content">
+        <div class="road-content" id="ele2">
             <img src="https://d1td2c8hf7fv9k.cloudfront.net/road.png" alt="">
         </div>
     </div>
@@ -133,7 +135,7 @@
             <span></span>
         </h1>
         <div class="team-content">
-            <div class="items1">
+            <div class="items1" id="ele3">
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/4..png" alt="">
@@ -165,7 +167,7 @@
                     </div>
                 </div>
             </div>
-            <div class="items2">
+            <div class="items2" id="ele4">
                 <div class="item">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/3..png" alt="">
@@ -224,6 +226,10 @@ const toSub: any = () => {
 const toAirdrop: any = () => {
     router.push({ path: `/airdrop` })
 }
+const toEgg: any = () => {
+    router.push({ path: `/egg` })
+    
+}
 let id = ref("");
 let right = ref(1);
 const chatContent = ref(null);
@@ -267,7 +273,50 @@ const mouseScenes: any = () => {
 const mouseover: any = () => {
     if(!store.state.user?.time) Marquee();
 }
+// 动效，指定位置触发
+const checkScrollHeightAndLoadAnimation: any = () => {
+        const windowHeight: Number = window.innerHeight;
+
+
+        let ele1 = document.getElementById("ele1") as HTMLElement;
+        let ele2 = document.getElementById("ele2") as HTMLElement;
+        let ele3 = document.getElementById("ele3") as HTMLElement;
+        let ele4 = document.getElementById("ele4") as HTMLElement;
+
+        const ele1Top: Number = ele1.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele2Top: Number = ele2.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele3Top: Number = ele3.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele4Top: Number = ele4.getBoundingClientRect().top; //距离屏幕顶部的距离
+
+
+        let arr = [
+           
+            {
+                el: ele1,
+                top: ele1Top
+            },
+            {
+                el: ele2,
+                top: ele2Top
+            },
+            {
+                el: ele3,
+                top: ele3Top
+            },
+            
+        ]
+        
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i].top < windowHeight){
+                    arr[i].el.classList.add('left')
+                }
+                
+            }
+            if(ele4Top < windowHeight) ele4.classList.add('right')
+}
 onMounted(()=>{
+    window.addEventListener('scroll', checkScrollHeightAndLoadAnimation);
+
     right.value = 0;
     console.log(right.value);
     setTimeout(() => {
@@ -303,6 +352,56 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="less" scoped>
+@keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+@keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(-80px);
+            -ms-transform: translateX(-80px);
+            transform: translateX(-80px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+@keyframes fadeInRight {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(80px);
+            -ms-transform: translateX(80px);
+            transform: translateX(80px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+   .left{
+    animation: fadeInLeft .5s linear;
+
+}
+.right{
+    animation: fadeInRight .5s linear;
+
+}
 .home {
     background-image: url('https://d1td2c8hf7fv9k.cloudfront.net/0-2.jpg');
     background-size: cover;
@@ -315,6 +414,8 @@ onBeforeUnmount(() => {
     // display: flex;
 }
 .navbar {
+    animation: fadeInDown .8s linear;
+
     position: fixed;
     left: 0;
     top: 0;
@@ -396,6 +497,7 @@ onBeforeUnmount(() => {
 }
 
 .home-title {
+    animation: fadeInLeft .8s linear;
     position: relative;
     max-height: 60vh;
     height: 55vh;
@@ -648,6 +750,8 @@ onBeforeUnmount(() => {
             margin-bottom: 60px;
         }
         .token1-content{
+    animation: fadeInLeft .8s linear;
+
             display: inline-block;
             background-color: #d9d9d9;
             margin-right: 7vw;
@@ -660,6 +764,8 @@ onBeforeUnmount(() => {
             min-width: 600px;
         }
         .token2{
+    animation: fadeInright .8s linear;
+
             margin-top: 20px;
             width: 24vw;
             min-width: 400px;

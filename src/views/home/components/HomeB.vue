@@ -12,6 +12,8 @@
                 <div class="item" @click="toWiki">Wiki</div>
                 <div class="span"></div>
                 <div class="item" @click="toAirdrop">Airdrop</div>
+                <div class="span"></div>
+                <div class="item" @click="toEgg">Egg lncubator</div>
             </div>
             <div class="tips" @click="connect(false)">{{ id || 'connect to wallet'}}</div>
         </div>
@@ -108,7 +110,7 @@
             <span>TOKENOMICS</span>
             <span></span>
         </h1>
-        <div class="token-content">
+        <div class="token-content" id="ele1">
             <h1>Legend of beasts Token: <span style="color: #ffc000;">$LOB</span>. Total Supply: 30,000,000</h1>
             <div class="token1-content">
                 <img src="https://d1td2c8hf7fv9k.cloudfront.net/token3.png" class="token1" alt="">
@@ -122,7 +124,7 @@
             <span>ROAD MAP</span>
             <span></span>
         </h1>
-        <div class="road-content">
+        <div class="road-content" id="ele2">
             <img src="https://d1td2c8hf7fv9k.cloudfront.net/road.png" alt="">
         </div>
     </div>
@@ -134,7 +136,7 @@
         </h1>
         <div class="team-content">
             <div class="items1">
-                <div class="item">
+                <div class="item" id="ele3">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/4..png" alt="">
                         <p>Product/Founder</p>
@@ -144,7 +146,7 @@
                         <span>Former Huawei manager have 5 years global working Experience, with rich project experience in the field of software development and product management.</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele6">
                     <div>
                         <img style="border-radius: 50%;" src="@/assets/image/toonmecom_ff9622.jpg" alt="">
                         <p>Marketing/Founder</p>
@@ -156,7 +158,7 @@
                 </div>
             </div>
             <div class="items2">
-                <div class="item">
+                <div class="item" id="ele4">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/6.png" alt="">
                         <p>COO/Founder</p>
@@ -166,7 +168,7 @@
                         <span>Deep understanding of financial regulations and cryptocurrencies, have professional user scene In the game field</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele7">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/7.png" alt="">
                         <p>Visual director</p>
@@ -178,7 +180,7 @@
                 </div>
             </div>
             <div class="items3">
-                 <div class="item">
+                 <div class="item" id="ele5">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/3..png" alt="">
                         <p>Web developer</p>
@@ -188,7 +190,7 @@
                         <span>with rich programming skills and problem-solving skills, familiar with blockchain application development.</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="ele8">
                     <div>
                         <img src="https://d1td2c8hf7fv9k.cloudfront.net/5.png" alt="">
                         <p>User grow developer</p>
@@ -223,6 +225,10 @@ const toPdf: any = () => {
 }
 const toAirdrop: any = () => {
     router.push({ path: `/airdrop` })
+}
+const toEgg: any = () => {
+    router.push({ path: `/egg` })
+    
 }
 const toSub: any = () => {
     window.open('https://70iaogphcx0.typeform.com/to/Cl2GH4Gt');
@@ -269,7 +275,69 @@ const mouseScenes: any = () => {
 const mouseover: any = () => {
     if(!store.state.user?.time) Marquee();
 }
+// 动效，指定位置触发
+const checkScrollHeightAndLoadAnimation: any = () => {
+        const windowHeight: Number = window.innerHeight;
+
+
+        let ele1 = document.getElementById("ele1") as HTMLElement;
+        let ele2 = document.getElementById("ele2") as HTMLElement;
+        let ele3 = document.getElementById("ele3") as HTMLElement;
+        let ele4 = document.getElementById("ele4") as HTMLElement;
+        let ele5 = document.getElementById("ele5") as HTMLElement;
+        let ele6 = document.getElementById("ele6") as HTMLElement;
+        let ele7 = document.getElementById("ele7") as HTMLElement;
+        let ele8 = document.getElementById("ele8") as HTMLElement;
+
+        const ele1Top: Number = ele1.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele2Top: Number = ele2.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele3Top: Number = ele3.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele4Top: Number = ele4.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele5Top: Number = ele5.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele6Top: Number = ele6.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele7Top: Number = ele7.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele8Top: Number = ele8.getBoundingClientRect().top; //距离屏幕顶部的距离
+
+
+        let arr = [
+           
+            {
+                el: ele1,
+                top: ele1Top
+            },
+            {
+                el: ele2,
+                top: ele2Top
+            },
+            {
+                el: ele3,
+                top: ele3Top
+            },
+            {
+                el: ele4,
+                top: ele4Top
+            },
+            {
+                el: ele5,
+                top: ele5Top
+            },
+            
+        ]
+        
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i].top < windowHeight){
+                    arr[i].el.classList.add('left')
+                }
+                
+            }
+            if(ele6Top < windowHeight) ele6.classList.add('right')
+            if(ele7Top < windowHeight) ele7.classList.add('right')
+            if(ele8Top < windowHeight) ele8.classList.add('right')
+}
+
 onMounted(()=>{
+    window.addEventListener('scroll', checkScrollHeightAndLoadAnimation);
+
     setTimeout(() => {
         Marquee();
     }, 2000);
@@ -294,7 +362,14 @@ onUnmounted(()=>{
 </script>
 
 <style lang="less" scoped>
+.left{
+    animation: fadeInLeft .5s linear;
 
+}
+.right{
+    animation: fadeInRight .5s linear;
+
+}
 @media screen {
     
 }
@@ -314,7 +389,50 @@ onUnmounted(()=>{
     height: 100%;
     // display: flex;
 }
+@keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+@keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(-80px);
+            -ms-transform: translateX(-80px);
+            transform: translateX(-80px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+@keyframes fadeInRight {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(80px);
+            -ms-transform: translateX(80px);
+            transform: translateX(80px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
 .navbar {
+    animation: fadeInDown .8s linear;
     position: fixed;
     left: 0;
     top: 0;
@@ -425,12 +543,14 @@ onUnmounted(()=>{
     img{
         width: 90%;
         height: auto;
+        animation: fadeInLeft .5s linear;
     }
     .py-3{
         font-size: 1.5vw;
         line-height: 1.5vw;
         padding-top: 1.5vw;
         padding-bottom: 1.5vw;
+        animation: fadeInLeft .5s linear;
     }
 }
 .home-menu{
