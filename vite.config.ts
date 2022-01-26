@@ -6,8 +6,15 @@ import path from 'path'
 export default defineConfig({
     plugins: [vue()],
     // 暴露本地服务到局域网
-    server: {
+    server:{
         host: '0.0.0.0',
+        proxy: {
+            '/api': {
+              target: 'https://assets.hbeasts.com/', //实际请求地址
+              changeOrigin: true,
+              rewrite: (path) => path.replace(/^\/api/, '')
+            },
+        }
     },
     define: {
         'process.env': {},
